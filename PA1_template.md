@@ -69,7 +69,7 @@ total_steps <- data %>% filter(!is.na(steps)) %>% group_by(date) %>% summarize(t
 ggplot(total_steps, aes(total_steps_aday)) + geom_histogram(binwidth = 2000)
 ```
 
-![](PA1_template_files/figure-html/mean_total_steps_aday, -1.png)<!-- -->
+![](PA1_template_files/figure-html/total_steps_aday-1.png)<!-- -->
 
 **3. The mean and median of the total number of steps taken per day:**
 
