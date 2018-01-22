@@ -221,16 +221,11 @@ data_new <- data_new %>% mutate(weekday = as.factor(weekday))
 ```r
 average_steps_new <- data_new %>% group_by(weekday, interval) %>% summarise(average_steps = mean(steps))
 
-ggplot(average_steps_new, aes(x=interval, y=average_steps)) + geom_line() + facet_grid(weekday ~ .) 
-```
-
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
-
-```r
+#ggplot(average_steps_new, aes(x=interval, y=average_steps)) + geom_line() + facet_grid(weekday ~ .) 
 xyplot(average_steps ~ interval|weekday, data = average_steps_new, type = "l", layout = c(1,2))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-2.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 
 

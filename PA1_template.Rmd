@@ -152,7 +152,7 @@ data_new <- data_new %>% mutate(weekday = as.factor(weekday))
 
 average_steps_new <- data_new %>% group_by(weekday, interval) %>% summarise(average_steps = mean(steps))
 
-ggplot(average_steps_new, aes(x=interval, y=average_steps)) + geom_line() + facet_grid(weekday ~ .) 
+#ggplot(average_steps_new, aes(x=interval, y=average_steps)) + geom_line() + facet_grid(weekday ~ .) 
 xyplot(average_steps ~ interval|weekday, data = average_steps_new, type = "l", layout = c(1,2))
 
 ```
