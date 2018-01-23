@@ -6,15 +6,18 @@ output:
 ---
 
 
-```{r loadpackages, echo=FALSE}
+```{r loadpackages, echo=TRUE}
 
 library(readr)
 library(dplyr)
 library(ggplot2)
 library(lattice)
 library(knitr)
-setwd("E:/Coursera/DataScience - Johns Hopkins University/04_ReproducibleResearch/CourseProject1/RepData_PeerAssessment1")
 
+```
+
+```{r, echo=FALSE}
+setwd("E:/Coursera/DataScience - Johns Hopkins University/04_ReproducibleResearch/CourseProject1/RepData_PeerAssessment1")
 ```
 
 
@@ -77,6 +80,7 @@ data$steps %>% is.na() %>% sum()
 
 **2-3. Devise a strategy for filling in all of the missing values in the dataset. Create a new dataset that is equal to the original dataset but with the missing data filled in:**    
 
+The missing values are filled in with the values that are equal to the median steps for the corresponding interval:
 
 ```{r, echo=TRUE}
 

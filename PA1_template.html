@@ -120,7 +120,9 @@ $(document).ready(function () {
 </div>
 
 
+<pre class="r"><code>library(readr)</code></pre>
 <pre><code>## Warning: package 'readr' was built under R version 3.3.3</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
 <pre><code>## Warning: package 'dplyr' was built under R version 3.3.3</code></pre>
 <pre><code>## 
 ## Attaching package: 'dplyr'</code></pre>
@@ -130,7 +132,10 @@ $(document).ready(function () {
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
 <pre><code>## Warning: package 'ggplot2' was built under R version 3.3.3</code></pre>
+<pre class="r"><code>library(lattice)
+library(knitr)</code></pre>
 <pre><code>## Warning: package 'knitr' was built under R version 3.3.3</code></pre>
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
@@ -171,6 +176,7 @@ ggplot(average_steps, aes(x=interval, y=average_steps_all_days)) + geom_line()</
 <pre class="r"><code>data$steps %&gt;% is.na() %&gt;% sum()</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <p><strong>2-3. Devise a strategy for filling in all of the missing values in the dataset. Create a new dataset that is equal to the original dataset but with the missing data filled in:</strong></p>
+<p>The missing values are filled in with the values that are equal to the median steps for the corresponding interval:</p>
 <pre class="r"><code>median_steps &lt;- data %&gt;% filter(!is.na(steps)) %&gt;% group_by(interval) %&gt;% summarise(median_steps_alldays = median(steps))
 
 data_new &lt;- data
